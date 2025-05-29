@@ -5,14 +5,6 @@
   "keywords": [
     "Backend"
   ],
-  "homepage": "https://github.com/TruwixTech/Vridhee-Classes-Backend#readme",
-  "bugs": {
-    "url": "https://github.com/TruwixTech/Vridhee-Classes-Backend/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TruwixTech/Vridhee-Classes-Backend.git"
-  },
   "license": "ISC",
   "author": "",
   "type": "module",

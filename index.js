@@ -13,6 +13,7 @@ const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:3001",
   "http://localhost:3002",
+  "https://portfolio-backend-mu-ten.vercel.app"
 ];
 
 app.use(
@@ -30,25 +31,32 @@ app.use(
 
 
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, OPTIONS");
-    res.header(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials"
-    );
-    res.header("Access-Control-Allow-Credentials", "true");
-    if (req.method === "OPTIONS") {
-        res.sendStatus(200);
-    } else {
-        next();
-    }
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, OPTIONS");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials"
+  );
+  res.header("Access-Control-Allow-Credentials", "true");
+  if (req.method === "OPTIONS") {
+    res.sendStatus(200);
+  } else {
+    next();
+  }
 });
 app.use(express.json());
 
 // Routes
 app.use("/api/v1/contact", contactRoutes);
 
+
+app.use('/', (req, res) => {
+  res.send({
+    message: "Welcome to portfolio-Backend"
+  })
+})
+
 // Start Server
 app.listen(PORT, () => {
-    console.log(`Server running on PORT ${PORT}`);
+  console.log(`Server running on PORT ${PORT}`);
 });
